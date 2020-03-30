@@ -1,80 +1,64 @@
+// Get DOM elements
 const word = document.getElementById('word');
 const text = document.getElementById('text');
 const scoreEl = document.getElementById('score');
 const timeEl = document.getElementById('time');
 const endgameEl = document.getElementById('end-game-container');
+const startgameEl = document.getElementById('start-game-container');
 const settingsBtn = document.getElementById('settings-btn');
 const settings = document.getElementById('settings');
 const settingsForm = document.getElementById('settings-form');
 const difficultySelect = document.getElementById('difficulty');
+const endBtn = document.getElementById('end-btn');
+const closeBtn = document.getElementById('close');
 
-// List of words for game
-const words = [
-  'sigh',
-  'tense',
-  'airplane',
-  'ball',
-  'pies',
-  'juice',
-  'warlike',
-  'bad',
-  'north',
-  'dependent',
-  'steer',
-  'silver',
-  'highfalutin',
-  'superficial',
-  'quince',
-  'eight',
-  'feeble',
-  'admit',
-  'drag',
-  'loving'
-];
-
-// Init word
+// Init
+const words = [];
 let randomWord;
-
-// Init score
 let score = 0;
+let time = 5;
 
-// Init time
-let time = 10;
+text.focus();
 
-// Set difficulty to value in ls or medium
-let difficulty =
-  localStorage.getItem('difficulty') !== null
-    ? localStorage.getItem('difficulty')
-    : 'medium';
+// Set difficulty to value in localStorage or medium
+const setDifficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
+let difficulty = setDifficulty;
 
 // Set difficulty select value
-difficultySelect.value =
-  localStorage.getItem('difficulty') !== null
-    ? localStorage.getItem('difficulty')
-    : 'medium';
-
-// Focus on text on start
-text.focus();
+difficultySelect.value = setDifficulty;
 
 // Start counting down
 const timeInterval = setInterval(updateTime, 1000);
 
-// Generate random word from array
+// Fetch words from API
+async function generateWords() {
+    let response = await fetch(`https://random-word-api.herokuapp.com/word?number=100`);
+    let data = await response.json()
+            data.forEach((a) => {
+                words.push(a);
+            })
+    addWordToDOM();
+}
+
+generateWords();
+
+// Get random word from words arr
 function getRandomWord() {
-  return words[Math.floor(Math.random() * words.length)];
+    return words[Math.floor(Math.random() * words.length)];
 }
 
 // Add word to DOM
 function addWordToDOM() {
-  randomWord = getRandomWord();
-  word.innerHTML = randomWord;
+    randomWord = getRandomWord();
+    word.innerHTML = randomWord;
 }
 
 // Update score
 function updateScore() {
-  score++;
-  scoreEl.innerHTML = score;
+    score++;
+    scoreEl.innerHTML = score;
 }
+
 
 // Update time
 function updateTime() {
