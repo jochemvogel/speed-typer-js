@@ -4,6 +4,8 @@
   --bg-color: #829ab1;
   --bg-color-light: #d9e2ec;
   --button-bg-color: #2bb0ed;
+  --placeholder-color: #bcccdc;
+  --boxshadow-color: hsla(220, 63%, 16%, .1);
 }
 
 * {
@@ -43,9 +45,11 @@ input {
   border: 0;
   border-radius: 4px;
   font-size: 14px;
-  width: 300px;
-  padding: 12px 20px;
+  width: 350px;
+  padding: 20px 18px;
+  font-size: 24px;
   margin-top: 10px;
+  box-shadow: 0 4px 6px var(--boxshadow-color);
 }
 
 select {
@@ -69,26 +73,46 @@ button:focus {
 /* Game containers */
 
 .game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: var(--bg-color);
   padding: 20px;
   border-radius: 4px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px var(--boxshadow-color);
   color: var(--font-color-light);
   position: relative;
   text-align: center;
-  width: 500px;
+  width: 900px;
+  height: 600px;
+  font-size: 18px;
+}
+
+/* I'm sorry, but I can't find another way rn */
+.game-heading {
+  margin-top: -5%;
+  margin-bottom: 7.5%;
 }
 
 .score-container {
   position: absolute;
-  top: 60px;
-  right: 20px;
+  bottom: 60px;
+  right: 20%;
 }
 
 .time-container {
   position: absolute;
-  top: 60px;
-  left: 20px;
+  bottom: 60px;
+  left: 20%;
+}
+
+.difficulty-area {
+  font-family: 'Nunito', sans-serif;
+}
+
+.difficulty-area-span {
+  font-weight: 700;
 }
 
 .start-game-container {
@@ -147,20 +171,29 @@ button:focus {
   border-radius: 4px;
   margin-top: 35px;
   padding: 10px 30px;
-  box-shadow: 0px 4px 6px rgba(15, 32, 66, .2);
+  box-shadow: 0px 4px 6px var(--boxshadow-color);
 }
 
 .btn:active {
   transform: scale(.9)
 }
 
-
+::placeholder {
+  color: var(--placeholder-color);
+  font-size: 18px;
+  font-style: italic;
+}
 
 /* Media Queries */
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .start-game-description {
     max-width: 50%;
+  }
+
+  .game-container {
+    min-width: 400px;
+    max-width: 90%;
   }
 }
 

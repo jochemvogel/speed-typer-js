@@ -8,17 +8,19 @@ const startgameEl = document.getElementById('start-game-container');
 const difficultyForm = document.getElementById('difficulty-form');
 const startBtn = document.getElementById('btn-start-game');
 const endBtn = document.getElementById('btn-end-game');
+const difficultyArea = document.getElementById('difficulty-area-span');
 
 // Init
 const words = [];
 let randomWord;
 let score = 0;
 let time = 10;
+let timeInterval;
 
 text.focus();
 
 // Set difficulty to value in localStorage or medium
-const setDifficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
+const setDifficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'Medium';
 let difficulty = setDifficulty;
 
 // Fetch words from API
@@ -44,9 +46,6 @@ function addWordToDOM() {
     word.innerHTML = randomWord;
 }
 
-// interval
-let timeInterval;
-
 // Update score
 function updateScore() {
     score++;
@@ -61,7 +60,6 @@ function updateTime() {
   if (time === 0) {
     clearInterval(timeInterval);
 
-    // end game
     gameOver();
   }
 }
@@ -81,12 +79,25 @@ function gameOver() {
   endBtn.addEventListener('click', () => {
     startgameEl.classList.add('show');
     endgameEl.style.display = 'none';
-    score = 0;
-    time = 10;
+    resetGame();
   });
 }
 
 addWordToDOM();
+
+function resetGame() {
+  addWordToDOM();
+  score = 0;
+  time = 10;
+}
+
+// function newGame() {
+//   addWordToDOM();
+//   updateScore();
+//   updateTime()
+//   e.target.value = '';
+// }
+
 
 // Event listeners
 
@@ -113,9 +124,9 @@ text.addEventListener('input', e => {
     // Clear
     e.target.value = '';
 
-    if (difficulty === 'hard') {
+    if (difficulty === 'Hard') {
       time += 2;
-    } else if (difficulty === 'medium') {
+    } else if (difficulty === 'Medium') {
       time += 3;
     } else {
       time += 5;
@@ -129,6 +140,8 @@ text.addEventListener('input', e => {
 startBtn.addEventListener('click', () => {
   // Remove show class --> game will be vissible
   startgameEl.classList.remove('show');
+  difficultyArea.innerHTML = difficulty;
+  // resetGame();
 });
 
 // Difficulty change
