@@ -7,28 +7,23 @@ const endgameEl = document.getElementById('end-game-container');
 const startgameEl = document.getElementById('start-game-container');
 const settingsBtn = document.getElementById('settings-btn');
 const settings = document.getElementById('settings');
-const settingsForm = document.getElementById('settings-form');
+const difficultyForm = document.getElementById('difficulty-form');
 const difficultySelect = document.getElementById('difficulty');
 const endBtn = document.getElementById('end-btn');
-const closeBtn = document.getElementById('close');
+const hideBtn = document.getElementById('hide');
+const startBtn = document.getElementById('btn-start-game');
 
 // Init
 const words = [];
 let randomWord;
 let score = 0;
-let time = 5;
+let time = 10;
 
 text.focus();
 
 // Set difficulty to value in localStorage or medium
 const setDifficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'medium';
 let difficulty = setDifficulty;
-
-// Set difficulty select value
-difficultySelect.value = setDifficulty;
-
-// Start counting down
-const timeInterval = setInterval(updateTime, 1000);
 
 // Fetch words from API
 async function generateWords() {
@@ -67,6 +62,7 @@ function updateTime() {
 
   if (time === 0) {
     clearInterval(timeInterval);
+
     // end game
     gameOver();
   }
@@ -91,7 +87,19 @@ addWordToDOM();
 text.addEventListener('input', e => {
   const insertedText = e.target.value;
 
-  if (insertedText === randomWord) {
+  // First word
+  if (insertedText === randomWord && time == 10) {
+    const timeInterval = setInterval(updateTime, 1000);
+
+    addWordToDOM();
+    updateScore();
+
+    // Clear
+    e.target.value = '';
+
+    updateTime();
+
+  } else if (insertedText === randomWord) {
     addWordToDOM();
     updateScore();
 
@@ -111,10 +119,14 @@ text.addEventListener('input', e => {
 });
 
 // Settings btn click
-settingsBtn.addEventListener('click', () => settings.classList.toggle('hide'));
+startBtn.addEventListener('click', () => {
+  // Remove show class --> game will be vissible
+  startgameEl.classList.remove('show');
+});
 
-// Settings select
-settingsForm.addEventListener('change', e => {
+// Difficulty change
+difficultyForm.addEventListener('change', e => {
+  console.log(e.target.value);
   difficulty = e.target.value;
   localStorage.setItem('difficulty', difficulty);
 });
