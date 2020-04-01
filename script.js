@@ -5,13 +5,9 @@ const scoreEl = document.getElementById('score');
 const timeEl = document.getElementById('time');
 const endgameEl = document.getElementById('end-game-container');
 const startgameEl = document.getElementById('start-game-container');
-const settingsBtn = document.getElementById('settings-btn');
-const settings = document.getElementById('settings');
 const difficultyForm = document.getElementById('difficulty-form');
-const difficultySelect = document.getElementById('difficulty');
-const endBtn = document.getElementById('end-btn');
-const hideBtn = document.getElementById('hide');
 const startBtn = document.getElementById('btn-start-game');
+const endBtn = document.getElementById('btn-end-game');
 
 // Init
 const words = [];
@@ -48,12 +44,14 @@ function addWordToDOM() {
     word.innerHTML = randomWord;
 }
 
+// interval
+let timeInterval;
+
 // Update score
 function updateScore() {
     score++;
     scoreEl.innerHTML = score;
 }
-
 
 // Update time
 function updateTime() {
@@ -73,10 +71,19 @@ function gameOver() {
   endgameEl.innerHTML = `
     <h1>Time ran out</h1>
     <p>Your final score is ${score}</p>
-    <button onclick="location.reload()">Reload</button>
+    <button id="btn-end-game" class="btn"> Back to menu </button>
   `;
 
   endgameEl.style.display = 'flex';
+
+  // Add click event on created 'back to menu' button
+  const endBtn = document.getElementById('btn-end-game');
+  endBtn.addEventListener('click', () => {
+    startgameEl.classList.add('show');
+    endgameEl.style.display = 'none';
+    score = 0;
+    time = 10;
+  });
 }
 
 addWordToDOM();
@@ -89,7 +96,7 @@ text.addEventListener('input', e => {
 
   // First word
   if (insertedText === randomWord && time == 10) {
-    const timeInterval = setInterval(updateTime, 1000);
+    timeInterval = setInterval(updateTime, 1000);
 
     addWordToDOM();
     updateScore();
@@ -126,7 +133,6 @@ startBtn.addEventListener('click', () => {
 
 // Difficulty change
 difficultyForm.addEventListener('change', e => {
-  console.log(e.target.value);
   difficulty = e.target.value;
   localStorage.setItem('difficulty', difficulty);
 });
