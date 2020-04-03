@@ -109,6 +109,7 @@ button:focus {
 
 .difficulty-area {
   font-family: 'Nunito', sans-serif;
+  margin-top: -7px;
 }
 
 .difficulty-area-span {
