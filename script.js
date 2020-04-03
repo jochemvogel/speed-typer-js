@@ -8,6 +8,7 @@ const startgameEl = document.getElementById('start-game-container');
 const difficultyForm = document.getElementById('difficulty-form');
 const startBtn = document.getElementById('btn-start-game');
 const endBtn = document.getElementById('btn-end-game');
+const endScore = document.getElementById('end-score');
 const difficultyArea = document.getElementById('difficulty-area-span');
 
 // Init
@@ -17,7 +18,7 @@ let score = 0;
 let time = 10;
 let timeInterval;
 
-text.focus();
+generateWords();
 
 // Set difficulty to value in localStorage or medium
 const setDifficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'Medium';
@@ -32,8 +33,6 @@ async function generateWords() {
             })
     addWordToDOM();
 }
-
-generateWords();
 
 // Get random word from words arr
 function getRandomWord() {
@@ -66,40 +65,17 @@ function updateTime() {
 
 // Game over, show end screen
 function gameOver() {
-  endgameEl.innerHTML = `
-    <h1>Time ran out</h1>
-    <p>Your final score is ${score}</p>
-    <button id="btn-end-game" class="btn"> Back to menu </button>
-  `;
-
+  endScore.innerHTML = score;
   endgameEl.style.display = 'flex';
-
-  // Add click event on created 'back to menu' button
-  const endBtn = document.getElementById('btn-end-game');
-  endBtn.addEventListener('click', () => {
-    startgameEl.classList.add('show');
-    endgameEl.style.display = 'none';
-    resetGame();
-  });
 }
 
-addWordToDOM();
-
-function resetGame() {
-  addWordToDOM();
-  score = 0;
-  time = 10;
+// Focus on input field and clear value
+function newGame() {
+  text.focus();
+  text.value = '';
 }
 
-// function newGame() {
-//   addWordToDOM();
-//   updateScore();
-//   updateTime()
-//   e.target.value = '';
-// }
-
-
-// Event listeners
+// EVENT LISTENERS
 
 // Typing
 text.addEventListener('input', e => {
@@ -138,11 +114,12 @@ text.addEventListener('input', e => {
 
 // Settings btn click
 startBtn.addEventListener('click', () => {
-  // Remove show class --> game will be vissible
   startgameEl.classList.remove('show');
   difficultyArea.innerHTML = difficulty;
-  // resetGame();
+  newGame();
 });
+
+endBtn.addEventListener('click', () => location.reload());
 
 // Difficulty change
 difficultyForm.addEventListener('change', e => {
