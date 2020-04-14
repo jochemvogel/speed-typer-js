@@ -1,9 +1,9 @@
 :root {
   --font-color-light: #f0f4f8;
-  --font-color-dark: #102a43;
-  --bg-color: #829ab1;
-  --bg-color-light: #d9e2ec;
-  --button-bg-color: #2bb0ed;
+  --font-color-dark: #2a2c2b;
+  --bg-color: #374140;
+  --bg-color-light: #D9Cb9E;
+  --button-bg-color: rgb(218, 83, 68);
   --placeholder-color: #bcccdc;
   --boxshadow-color: hsla(220, 63%, 16%, .1);
 }

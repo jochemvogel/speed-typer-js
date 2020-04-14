@@ -16,17 +16,14 @@ const words = [];
 let randomWord;
 let score = 0;
 let time = 10;
+let difficulty = 'Intermediate';
 let timeInterval;
 
 generateWords();
 
-// Set difficulty to value in localStorage or medium
-const setDifficulty = localStorage.getItem('difficulty') !== null ? localStorage.getItem('difficulty') : 'Medium';
-let difficulty = setDifficulty;
-
 // Fetch words from API
 async function generateWords() {
-    let response = await fetch(`https://random-word-api.herokuapp.com/word?number=100`);
+    let response = await fetch(`https://random-word-api.herokuapp.com/word?number=20`);
     let data = await response.json()
             data.forEach((a) => {
                 words.push(a);
@@ -47,7 +44,13 @@ function addWordToDOM() {
 
 // Update score
 function updateScore() {
-    score++;
+  if (difficulty === 'Expert') {
+    score += 5;
+  } else if (difficulty === 'Intermediate') {
+    score += 2;
+  } else {
+    score += 1;
+  }
     scoreEl.innerHTML = score;
 }
 
@@ -100,9 +103,9 @@ text.addEventListener('input', e => {
     // Clear
     e.target.value = '';
 
-    if (difficulty === 'Hard') {
+    if (difficulty === 'Expert') {
       time += 2;
-    } else if (difficulty === 'Medium') {
+    } else if (difficulty === 'Intermediate') {
       time += 3;
     } else {
       time += 5;
@@ -122,7 +125,8 @@ startBtn.addEventListener('click', () => {
 endBtn.addEventListener('click', () => location.reload());
 
 // Difficulty change
-difficultyForm.addEventListener('change', e => {
-  difficulty = e.target.value;
-  localStorage.setItem('difficulty', difficulty);
-});
+difficultyForm.addEventListener('change', e => difficulty = e.target.value);
+// difficultyForm.addEventListener('change', e => {
+//   difficulty = e.target.value;
+//   localStorage.setItem('difficulty', difficulty);
+// });
