@@ -68,7 +68,7 @@ function updateTime() {
 
 // Game over, show end screen
 function gameOver() {
-  endScore.innerHTML = score;
+  endScore.innerHTML = `<strong>${score}</strong>`;
   endgameEl.style.display = 'flex';
 }
 
@@ -126,7 +126,3 @@ endBtn.addEventListener('click', () => location.reload());
 
 // Difficulty change
 difficultyForm.addEventListener('change', e => difficulty = e.target.value);
-// difficultyForm.addEventListener('change', e => {
-//   difficulty = e.target.value;
-//   localStorage.setItem('difficulty', difficulty);
-// });

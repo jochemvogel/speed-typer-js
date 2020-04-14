@@ -159,6 +159,31 @@ button:focus {
   z-index: 1;
 }
 
+.end-score-text {
+  font-weight: normal;
+  margin: 0;
+}
+
+.made-by {
+  position: absolute;
+  font-size: 1.25em;
+  color: var(--font-color-light);
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: 1px;
+}
+
+.made-by a {
+  color: var(--font-color-light);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.made-by a:hover {
+  color: hsla(206, 33%, 96%, 0.637);
+  text-decoration: none;
+}
+
 /* Buttons */
 
 .btn {
