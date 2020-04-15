@@ -89,6 +89,11 @@ button:focus {
   font-size: 18px;
 }
 
+.game-container h2 {
+  font-size: 40px;
+  margin: 5px 0;
+}
+
 /* I'm sorry, but I can't find another way rn */
 .game-heading {
   margin-top: -5%;
