@@ -147,7 +147,14 @@ button:focus {
 .start-game-description {
   max-width: 500px;
   text-align: center;
-  margin: 25px 0px;
+}
+
+.start-game-description:first-child {
+  margin-top: 25px;
+}
+
+.start-game-description:last-child {
+  margin-bottom: 25px
 }
 
 .end-game-container {
