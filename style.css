@@ -18,7 +18,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100%;
   margin: 0;
 }
 
@@ -239,5 +239,9 @@ button:focus {
 @media screen and (max-width: 600px) {
   .start-game-description {
     max-width: 75%;
+  }
+
+  .game-container {
+    height: 100vh;
   }
 }
