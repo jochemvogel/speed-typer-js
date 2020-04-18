@@ -1,247 +1,251 @@
 :root {
-  --font-color-light: #f0f4f8;
-  --font-color-dark: #2a2c2b;
-  --bg-color: #374140;
-  --bg-color-light: #D9Cb9E;
-  --button-bg-color: rgb(218, 83, 68);
-  --placeholder-color: #bcccdc;
-  --boxshadow-color: hsla(220, 63%, 16%, .1);
+	--font-color-light: #f0f4f8;
+	--font-color-dark: #2a2c2b;
+	--bg-color: #374140;
+	--bg-color-light: #d9cb9e;
+	--button-bg-color: rgb(218, 83, 68);
+	--placeholder-color: #bcccdc;
+	--boxshadow-color: hsla(220, 63%, 16%, 0.1);
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
-  background-color: var(--bg-color-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%;
-  margin: 0;
+	font-family: 'Nunito', sans-serif;
+	background-color: var(--bg-color-light);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	margin: 0;
 }
 
 h1 {
-  font-size: 40px;
-  font-family: 'Tillana', sans-serif;
-  font-weight: 700;
-  margin: 0 0 15px;
+	font-size: 40px;
+	font-family: 'Tillana', sans-serif;
+	font-weight: 700;
+	margin: 0 0 15px;
 }
 
 h2 {
-  font-family: 'Nunito', sans-serif;
-  padding: 8px;
-  border-radius: 4px;
-  margin: 0 0 40px;
+	font-family: 'Nunito', sans-serif;
+	padding: 8px;
+	border-radius: 4px;
+	margin: 0 0 40px;
 }
 
 h3 {
-  font-family: 'Nunito', sans-serif;
-  font-size: 24px;
+	font-family: 'Nunito', sans-serif;
+	font-size: 24px;
 }
 
 input {
-  border: 0;
-  border-radius: 4px;
-  font-size: 14px;
-  width: 350px;
-  padding: 20px 18px;
-  font-size: 24px;
-  margin-top: 10px;
-  box-shadow: 0 4px 6px var(--boxshadow-color);
+	border: 0;
+	border-radius: 4px;
+	font-size: 14px;
+	width: 350px;
+	padding: 20px 18px;
+	font-size: 24px;
+	margin-top: 10px;
+	box-shadow: 0 4px 6px var(--boxshadow-color);
 }
 
 select {
-  font-size: 16px;
-  font-family: 'Nunito', sans-serif;
-  color: var(--font-color-dark);
-  background-color: var(--font-color-light);
-  width: 200px;
-  padding: 10px;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-radius: 0;
+	font-size: 16px;
+	font-family: 'Nunito', sans-serif;
+	color: var(--font-color-dark);
+	background-color: var(--font-color-light);
+	width: 200px;
+	padding: 10px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border-radius: 5px;
 }
 
 select:focus,
 button:focus {
-  outline: 0;
+	outline: 0;
 }
 
 /* Game containers */
 
 .game-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--bg-color);
-  padding: 20px;
-  border-radius: 4px;
-  box-shadow: 0 4px 6px var(--boxshadow-color);
-  color: var(--font-color-light);
-  position: relative;
-  text-align: center;
-  width: 900px;
-  height: 600px;
-  font-size: 18px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--bg-color);
+	padding: 20px;
+	border-radius: 4px;
+	box-shadow: 0 4px 6px var(--boxshadow-color);
+	color: var(--font-color-light);
+	position: relative;
+	text-align: center;
+	width: 900px;
+	height: 600px;
+	font-size: 18px;
 }
 
 .game-container h2 {
-  font-size: 40px;
-  margin: 5px 0;
+	font-size: 40px;
+	margin: 5px 0;
 }
 
 /* I'm sorry, but I can't find another way rn */
 .game-heading {
-  margin-top: -5%;
-  margin-bottom: 7.5%;
+	margin-top: -5%;
+	margin-bottom: 7.5%;
 }
 
 .score-container {
-  position: absolute;
-  bottom: 60px;
-  right: 20%;
+	position: absolute;
+	bottom: 60px;
+	right: 20%;
 }
 
 .time-container {
-  position: absolute;
-  bottom: 60px;
-  left: 20%;
+	position: absolute;
+	bottom: 60px;
+	left: 20%;
 }
 
 .difficulty-area {
-  font-family: 'Nunito', sans-serif;
-  margin-top: -7px;
+	font-family: 'Nunito', sans-serif;
+	margin-top: -7px;
 }
 
 .difficulty-area-span {
-  font-weight: 700;
+	font-weight: 700;
 }
 
 .start-game-container {
-  color: var(--font-color-light);
-  background-color: var(--bg-color);
-  opacity: 0;
-  z-index: -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100vh;
-  transition: .3s ease;
+	color: var(--font-color-light);
+	background-color: var(--bg-color);
+	opacity: 0;
+	z-index: -1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100vh;
+	transition: 0.3s ease;
 }
 
 .start-game-container.show {
-  opacity: 1;
-  z-index: 2;
+	opacity: 1;
+	z-index: 2;
 }
 
 .start-game-description {
-  max-width: 500px;
-  text-align: center;
+	max-width: 500px;
+	text-align: center;
 }
 
 .start-game-description:first-child {
-  margin-top: 25px;
+	margin-top: 25px;
 }
 
 .start-game-description:last-child {
-  margin-bottom: 25px
+	margin-bottom: 25px;
 }
 
 .end-game-container {
-  background-color: var(--bg-color);
-  color: var(--font-color-light);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+	background-color: var(--bg-color);
+	color: var(--font-color-light);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
 }
 
 .end-score-text {
-  font-weight: normal;
-  margin: 0;
+	font-weight: normal;
+	margin: 0;
 }
 
 .made-by {
-  position: absolute;
-  font-size: 1.25em;
-  color: var(--font-color-light);
-  transform: translate(-50%, -50%);
-  left: 50%;
-  bottom: 1px;
+	position: absolute;
+	font-size: 1.25em;
+	color: var(--font-color-light);
+	transform: translate(-50%, -50%);
+	left: 50%;
+	bottom: 1px;
 }
 
 .made-by a {
-  color: var(--font-color-light);
-  font-weight: 700;
-  text-decoration: none;
+	color: var(--font-color-light);
+	font-weight: 700;
+	text-decoration: none;
 }
 
 .made-by a:hover {
-  color: hsla(206, 33%, 96%, 0.637);
-  text-decoration: none;
+	color: hsla(206, 33%, 96%, 0.637);
+	text-decoration: none;
 }
 
 /* Buttons */
 
 .btn {
-  font-size: 18px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  cursor: pointer;
-  color: var(--font-color-light);
-  background-color: var(--button-bg-color);
-  border: none;
-  border-radius: 4px;
-  margin-top: 35px;
-  padding: 10px 30px;
-  box-shadow: 0px 4px 6px var(--boxshadow-color);
+	font-size: 18px;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 700;
+	cursor: pointer;
+	color: var(--font-color-light);
+	background-color: var(--button-bg-color);
+	border: none;
+	border-radius: 4px;
+	margin-top: 35px;
+	padding: 10px 30px;
+	box-shadow: 0px 4px 6px var(--boxshadow-color);
 }
 
 .btn:active {
-  transform: scale(.9)
+	transform: scale(0.9);
 }
 
 ::placeholder {
-  color: var(--placeholder-color);
-  font-size: 21px;
-  font-style: italic;
+	color: var(--placeholder-color);
+	font-size: 21px;
+	font-style: italic;
 }
 
 /* Media Queries */
 
 @media screen and (max-width: 1000px) {
-  .start-game-description {
-    max-width: 50%;
-  }
+	body {
+		background-color: var(--bg-color);
+	}
 
-  .game-container {
-    min-width: 400px;
-    max-width: 90%;
-  }
+	.start-game-description {
+		max-width: 50%;
+	}
+
+	.game-container {
+		min-width: 400px;
+		max-width: 90%;
+	}
 }
 
 @media screen and (max-width: 600px) {
-  .start-game-description {
-    max-width: 75%;
-  }
+	.start-game-description {
+		max-width: 75%;
+	}
 
-  .game-container {
-    height: 100vh;
-  }
+	.game-container {
+		height: 100vh;
+	}
 }

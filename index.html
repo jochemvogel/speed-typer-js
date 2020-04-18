@@ -2,17 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A basic speed typing game - by Jochem Vogel">
     <meta name="author" content="Jochem Vogel">
-    <link rel="icon" type="image/png" href="img/favicon.png"/>
-    <link rel="shortcut icon" type="image/png" href="img/favicon-transparent.png"/>
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="img/favicon-transparent.png">
     <link rel="apple-touch-icon" href="img/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Tillana:700|Nunito:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
+
     <title>Typical</title>
   </head>
-
   <body>
     <div class="game-container">
       <div class="game-heading">
@@ -20,7 +21,6 @@
         <p id="difficulty-area" class="difficulty-area">Your difficulty: <span class="difficulty-area-span" id='difficulty-area-span'>Hard</span></p>
       </div>
       <small>Type the following:</small>
-
       <h2 id="word"></h2>
 
       <input type="text" id="text" autocomplete="off" autocapitalize="off" spellcheck="false" autocorrect="off"placeholder="Type the word here...">
@@ -36,23 +36,19 @@
 
     <!-- Start screen -->
     <div id="start-game-container" class="start-game-container show">
-        <h1>
-            Typical
-        </h1>
+        <h1>Typical</h1>
 
         <p class="start-game-description">Typical is a basic typing game made in JavaScript. The goal is to get as many points as possible within ten seconds. After every correct word, you get one point and extra seconds based on your difficulty. You can choose between three different difficulties (easy, medium and hard).</p>
 
         <p class="start-game-description">The timer will start counting down when you entered the first correct word. Good luck!</p>
 
-
-
         <h3 class="start-game-difficulty">Select difficulty</h3>
 
         <div class="form-group">
           <form id="difficulty-form">
-            <div>
+            <div class='select'>
               <label for="difficulty"></label>
-              <select id="difficulty">
+              <select id="difficulty" id="slct">
                 <option value="Beginner">Beginner</option>
                 <option value="Intermediate" selected>Intermediate</option>
                 <option value="Expert">Expert</option>
@@ -60,20 +56,17 @@
             </div>
           </form>
         </div>
-
-        <button id="btn-start-game" class="btn"> 
-          Start game
-        </button>
-    </div>
-
-      <!-- End screen -->
-      <div id="end-game-container" class="end-game-container">
-        <h1>Time ran out</h1>
-        <h2 class="end-score-text">Your final score is <span id="end-score">10</span></h2>
-        <button id="btn-end-game" class="btn"> Back to menu </button>
-        <p class="made-by">By <a href="https://www.jochemvogel.nl/" target="_blank">Jochem Vogel</a></p>
+        <button id="btn-start-game" class="btn">Start game</button>
       </div>
+
+    <!-- End screen -->
+    <div id="end-game-container" class="end-game-container">
+      <h1>Time ran out</h1>
+      <h2 class="end-score-text">Your final score is <span id="end-score">10</span></h2>
+      <button id="btn-end-game" class="btn"> Back to menu </button>
+      <p class="made-by">By <a href="https://github.com/jochemvogel/typical-js" target="_blank">Jochem Vogel</a></p>
     </div>
+  </div>
 
     <script src="script.js"></script>
   </body>

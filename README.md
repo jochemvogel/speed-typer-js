@@ -4,4 +4,4 @@ Typical is a basic typing game made in JavaScript. The goal is to get as many po
 
 # Screenshot
 
-<img src="https://i.ibb.co/ng8xG1j/Screenshot-2020-04-03-at-20-38-06.png" height=385>
+<img src="https://i.ibb.co/CvfGdP9/Screenshot-2020-04-18-at-21-33-56.png" height=385>
