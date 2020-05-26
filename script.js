@@ -11,6 +11,8 @@ const endBtn = document.getElementById('btn-end-game');
 const endScore = document.getElementById('end-score');
 const difficultyArea = document.getElementById('difficulty-area-span');
 
+alert("I don't know what's going on, but I'm aware of the styling problems. Gonna fix it soon.");
+
 // Init
 const words = [];
 let randomWord;
@@ -23,23 +25,23 @@ generateWords();
 
 // Fetch words from API
 async function generateWords() {
-    let response = await fetch(`https://random-word-api.herokuapp.com/word?number=20`);
-    let data = await response.json()
-            data.forEach((a) => {
-                words.push(a);
-            })
-    addWordToDOM();
+  let response = await fetch(`https://random-word-api.herokuapp.com/word?number=20`);
+  let data = await response.json()
+  data.forEach((a) => {
+    words.push(a);
+  })
+  addWordToDOM();
 }
 
 // Get random word from words arr
 function getRandomWord() {
-    return words[Math.floor(Math.random() * words.length)];
+  return words[Math.floor(Math.random() * words.length)];
 }
 
 // Add word to DOM
 function addWordToDOM() {
-    randomWord = getRandomWord();
-    word.innerHTML = randomWord;
+  randomWord = getRandomWord();
+  word.innerHTML = randomWord;
 }
 
 // Update score
@@ -51,7 +53,7 @@ function updateScore() {
   } else {
     score += 1;
   }
-    scoreEl.innerHTML = score;
+  scoreEl.innerHTML = score;
 }
 
 // Update time
