@@ -11,7 +11,11 @@ const endBtn = document.getElementById('btn-end-game');
 const endScore = document.getElementById('end-score');
 const difficultyArea = document.getElementById('difficulty-area-span');
 
-alert("I don't know what's going on, but I'm aware of the styling problems. Gonna fix it soon.");
+// Temporary alert for Chrome Users
+const isChrome = !!window.chrome;
+if (isChrome) {
+  alert("I don't know what's going on, but I'm aware of the styling problems in Chrome 83. They fixed it in Canary (new version), so give it some time and it'll work again. My apologies.");
+}
 
 // Init
 const words = [];
